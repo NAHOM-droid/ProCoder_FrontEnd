@@ -1,26 +1,69 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <MyHeader id="header" siteName="ProCoder" yourName="Nahom Demoz" />
+    <MyBody id="body" />
+    <Editor id="editor" />
+    <MyFooter id="footer" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MyHeader from "./components/MyHeader.vue";
+import MyBody from "./components/MyBody.vue";
+import MyFooter from "./components/MyFooter.vue";
+import Editor from "./components/CodeEditor.vue";
 
 export default {
-  name: 'App',
+  name: "App",
+
   components: {
-    HelloWorld
-  }
-}
+    MyHeader,
+    MyBody,
+    Editor,
+    MyFooter,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  margin: 0;
+}
+#header {
+  grid-area: header;
+}
+
+#body {
+  grid-area: body;
+}
+
+#editor {
+  grid-area: editor;
+}
+
+#footer {
+  grid-area: footer;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  background-color: rgb(158, 157, 157);
+
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 50px 1fr 30px;
+
+  grid-template-areas:
+    "header header"
+    "body editor"
+    "footer footer";
+
+  column-gap: 0.2rem;
 }
 </style>

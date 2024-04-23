@@ -1,0 +1,76 @@
+{
+  "problems": [
+    {
+      "Id": 1,
+      "Category": "String Manipulation",
+      "Description": "Write a function that reverses a given string. The function should handle strings of varying lengths and characters, including empty strings.",
+      "Hint": "Think about iterating through the string and building a new string in reverse order. Consider using a loop or recursion to achieve this.",
+      "TestCases": [
+        {
+          "input": "hello",
+          "output": "olleh"
+        },
+        {
+          "input": "world",
+          "output": "dlrow"
+        },
+        {
+          "input": "",
+          "output": ""
+        }
+      ],
+      "Solution_Code": "function reverseString(str) {if (str === \"\") {return \"\";}let reversed = \"\";for (let char of str) {reversed = char + reversed;}return reversed;}"
+    },
+    {
+      "Id": 2,
+      "Category": "Arrays",
+      "Description": "Write a function that finds the sum of all elements in an array. The function should be able to handle arrays of different lengths and containing numbers of various data types (integers, floats).",
+      "Hint": "Use a loop to iterate through the array and keep a running total. Be mindful of data type conversion if necessary.",
+      "TestCases": [
+        {
+          "input": [1, 2, 3, 4],
+          "output": 10
+        },
+        {
+          "input": [1.5, 2.2, 3.1],
+          "output": 6.8
+        },
+        {
+          "input": [1, "hello", 3],
+          "output": "Error: Invalid data type in array and Consider how to handle non-numeric elements"
+        }
+      ],
+      "Solution_Code": "function sumArray(arr) {let sum = 0;for (let num of arr) {if (typeof num === \"number\") {sum += num;} else {return \"Error: Invalid data type in array\";}}return sum;}"
+    },
+    {
+      "Id": 3,
+      "Category": "Loops",
+      "Description": "Write a function that prints all even numbers from a given starting number to an ending number. The function should handle negative starting or ending numbers and ensure only even numbers within the range are printed.",
+      "Hint": "Use a loop with a conditional statement to check for even numbers. Consider the starting and ending numbers to define the loop range.",
+      "TestCases": [
+        {
+          "input": {
+            "start": 1,
+            "end": 10
+          },
+          "output": "2, 4, 6, 8, 10"
+        },
+        {
+          "input": {
+            "start": -5,
+            "end": 5
+          },
+          "output": "-4, -2, 0, 2, 4"
+        },
+        {
+          "input": {
+            "start": 10,
+            "end": 1
+          },
+          "output": "10, 8, 6, 4, 2 \nHandle start greater than end"
+        }
+      ],
+      "Solution_Code": "function printEvenNumbers(start, end) {if (start > end) {for (let i = start; i >= end; i--) {if (i % 2 === 0) {console.log(i);}}} else {for (let i = start; i <= end; i++) {if (i % 2 === 0) {"
+    }
+  ]
+}
