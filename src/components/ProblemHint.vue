@@ -1,7 +1,7 @@
 <template>
   <div v-if="Hint">
     <h3>Hint</h3>
-    <hr>
+    <hr />
     <p>{{ Hint }}</p>
   </div>
 </template>
@@ -17,7 +17,8 @@ export default {
 </script>
 
 <style scoped>
-h3{
+h3,
+p {
   margin-left: 10px;
   margin-bottom: 0;
 }

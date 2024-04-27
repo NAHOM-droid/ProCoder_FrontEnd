@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <MyHeader id="header" siteName="ProCoder" yourName="Nahom Demoz" />
+    <!-- <MyHeader id="header" siteName="ProCoder" yourName="Nahom Demoz" /> -->
     <MyBody id="body" />
     <Editor id="editor" />
     <MyFooter id="footer" />
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import MyHeader from "./components/MyHeader.vue";
+// import MyHeader from "./components/MyHeader.vue";
 import MyBody from "./components/MyBody.vue";
 import MyFooter from "./components/MyFooter.vue";
 import Editor from "./components/CodeEditor.vue";
@@ -17,7 +17,7 @@ export default {
   name: "App",
 
   components: {
-    MyHeader,
+    // MyHeader,
     MyBody,
     Editor,
     MyFooter,
@@ -28,6 +28,7 @@ export default {
 <style>
 body {
   margin: 0;
+  padding: 0px;
 }
 #header {
   grid-area: header;
@@ -53,17 +54,14 @@ body {
   background-color: rgb(158, 157, 157);
 
   display: grid;
-  height: 100vh;
+  height: 94vh;
   width: 100vw;
 
   grid-template-columns: 1.5fr 1fr;
-  grid-template-rows: 50px 1fr 30px;
+  grid-template-rows: 1fr 30px;
 
   grid-template-areas:
-    "header header"
     "body editor"
     "footer footer";
-
-  column-gap: 0.2rem;
 }
 </style>

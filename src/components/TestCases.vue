@@ -23,7 +23,6 @@ export default {
 
 <style scoped>
 #test-cases-box {
-  height: 75vh;
   overflow-y: auto;
 }
 h3, #test-case {

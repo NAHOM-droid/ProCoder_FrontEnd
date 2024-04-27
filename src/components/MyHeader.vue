@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ siteName }}</h1>
+    <h1 id="pageName">{{ siteName }}</h1>
     <!-- <p>by {{ yourName }}</p> -->
   </div>
 </template>
@@ -16,12 +16,9 @@ export default {
 </script>
 
 <style scoped>
-MyHeader{
-  background-color: yellow;
-}
-h1 {
-  text-align: center;
+#pageName {
   margin: 0;
-  padding: 10px
+  padding: 10px;
+  padding-left: 20px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div>
-      <a href="">All RighRights Reserved</a>
+      <a href="">All Rights Reserved </a>
       <a href="https://www.github.com">GitHub</a>
       <a href="https://www.linkedin.com">LinkedIn</a>
       <a href="https://www.facebook.com">Facebook</a>

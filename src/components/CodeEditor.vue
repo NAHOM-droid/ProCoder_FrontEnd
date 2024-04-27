@@ -2,7 +2,7 @@
   <div class="editor-container">
     <div class="editor-header">Code Editor</div>
     <div class="editor">
-      <textarea v-model="code"></textarea>
+      <textarea id="text-area" v-model="code"></textarea>
     </div>
   </div>
 </template>
@@ -15,21 +15,13 @@ export default {
       code: `// Welcome to Code Editor\n\nfunction greet() {\n  return 'Hello, World!';\n}\n\nconsole.log(greet());`,
     };
   },
-  mounted() {
-    // Update the textarea height as the content changes
-    const codeTextarea = this.$el.querySelector("textarea");
-    codeTextarea.style.height = codeTextarea.scrollHeight + "px";
-    codeTextarea.addEventListener("input", () => {
-      codeTextarea.style.height = "auto";
-      codeTextarea.style.height = codeTextarea.scrollHeight + "px";
-    });
-  },
 };
 </script>
 
 <style scoped>
 .editor-container {
-  height: 100vh - 80px;
+  height: 100%;
+  background-color: white;
 }
 
 .editor-header {
@@ -39,15 +31,16 @@ export default {
 }
 
 .editor {
-  overflow: auto;
   width: 100%;
-  height: 100% - 50px;
+  height: 92%;
 }
 
-.editor textarea {
-  width: 100%;
+.editor #text-area {
+  width: 95%;
+  padding-left: 10px;
   height: 100%;
-  padding: 10px;
   resize: none;
+  overflow-y: scroll;
+  scrollbar-width: thin;
 }
 </style>

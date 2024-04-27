@@ -1,7 +1,7 @@
 <template>
   <div
     id="list-div"
-    v-for="problem of problems"
+    v-for="problem in problems"
     :key="problem.Id"
     @click="SelectedProblem(problem)"
   >
@@ -29,6 +29,8 @@ export default {
     async fetchProblems() {
       const res = await fetch("https://procoder-backend.onrender.com/api");
       const data = await res.json();
+
+      // default problem choosen
       this.SelectedProblem(data[0]);
       return data;
     },
@@ -46,6 +48,7 @@ export default {
 <style scoped>
 #list-div {
   margin: 0;
+  margin-top: 10px;
   padding: 0;
   box-sizing: border-box;
   overflow-y: auto;

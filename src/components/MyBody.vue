@@ -1,26 +1,33 @@
 <template>
   <div class="container">
-    <nav>
-      <button @click="handleClick('description')">Problem-Desc</button>
-      <button @click="handleClick('hint')">Hint</button>
-      <button @click="handleClick('testcases')">Test Cases</button>
-      <button @click="handleClick('solution')">Solution-Code</button>
+    <nav id="nav">
+      <button>ProCoder</button>
+      <button id="button" @click="handleClick('all')">All</button>
+      <button id="button" @click="handleClick('description')">
+        Problem-Desc
+      </button>
+      <button id="button" @click="handleClick('hint')">Hint</button>
+      <button id="button" @click="handleClick('testcases')">Test Cases</button>
+      <button id="button" @click="handleClick('solution')">
+        Solution-Code
+      </button>
     </nav>
     <div id="left-comp">
       <ProblemList @updateProblemComponents="updateComponents" />
     </div>
     <div id="center-comps">
       <Description
-        v-show="activeComponent === 'description'"
-        :Description="currentDescription" :title="currentTitle"
+        v-show="isComponentVisible('description')"
+        :Description="currentDescription"
+        :title="currentTitle"
       />
-      <Hint v-show="activeComponent === 'hint'" :Hint="currentHint" />
+      <Hint v-show="isComponentVisible('hint')" :Hint="currentHint" />
       <TestCases
-        v-show="activeComponent === 'testcases'"
+        v-show="isComponentVisible('testcases')"
         :Test_Cases="currentTestCases"
       />
       <Solution
-        v-show="activeComponent === 'solution'"
+        v-show="isComponentVisible('solution')"
         :Solution="currentSolution"
       />
     </div>
@@ -50,7 +57,7 @@ export default {
       currentHint: "",
       currentTestCases: "",
       currentSolution: "",
-      activeComponent: "description", // Default to description component
+      activeComponent: "all",
     };
   },
   methods: {
@@ -60,17 +67,20 @@ export default {
       this.currentHint = problem.Hint;
       this.currentTestCases = problem.TestCases;
       this.currentSolution = problem.Solution_Code;
-      this.activeComponent = "description"; // Show description component after update
+      this.activeComponent = "all";
     },
     handleClick(componentName) {
       this.activeComponent = componentName;
+    },
+    isComponentVisible(param) {
+      return this.activeComponent === param || this.activeComponent === "all";
     },
   },
 };
 </script>
 
 <style scoped>
-nav {
+#nav {
   grid-area: nav;
   padding: 0;
   margin: 0;
@@ -78,7 +88,7 @@ nav {
   background-color: #8ab3b3;
 }
 
-button {
+#button, button {
   border: none;
   background-color: transparent;
   padding: 0 5px;
@@ -88,26 +98,23 @@ button {
   font-size: 15px;
 }
 
-button:hover {
+#button:hover {
   background-color: #bebfc0; /* Change button background color on hover */
 }
 
 #left-comp {
-  overflow-y: auto;
-  height: 97%;
   grid-area: pro-list;
   padding-left: 10px;
-}
-#right-comp {
-  grid-area: editor;
-  height: 97%;
-  overflow: scroll;
+  background-color: rgb(122, 120, 120);
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 #center-comps {
-  overflow: auto;
-  height: 100%;
+  overflow: scroll;
+  scrollbar-width: none;
   grid-area: center-comps;
+  background-color: rgb(122, 120, 120);
 }
 
 .container {
@@ -117,7 +124,7 @@ button:hover {
   box-sizing: border-box;
 
   display: grid;
-  height: 100vh-80px;
+  /* height: 100%; */
   width: 100%;
 
   grid-template-columns: 0.5fr 1fr;
@@ -130,45 +137,3 @@ button:hover {
   column-gap: 0.2rem;
 }
 </style>
-
-<!-- .container {
-  display: flex;
-  /* align-items: center; */
-  width: 100%;
-  height: 100%;
-}
-
-.left-comp {
-  flex: 1;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  height: 100%;
-}
-.right-comp {
-  flex: 2; /* Makes left and right divs take up equal space */
-  padding: 1rem; /* Add padding for spacing */
-}
-
-.center-comps {
-  display: flex;
-  flex-direction: column;
-  flex: 2;
-  overflow: hidden;
-  height: 100%;
-}
-
-.center-comps {
-  padding: 1rem;
-  /* text-align: center; //Center text in center divs */
-}
-
-/* .center-comp:not(.active) {
-  display: hidden;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.center-comp.active {
-  display: block;
-} */ -->
